@@ -7,9 +7,10 @@ from langgraph.graph.message import add_messages
 from dotenv import load_dotenv
 import sqlite3
 
+
 load_dotenv()
 
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 
 class ChatState(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
