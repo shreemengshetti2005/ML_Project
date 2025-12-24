@@ -47,8 +47,9 @@ if st.sidebar.button('New Chat'):
 
 st.sidebar.header('My Conversations')
 
-for thread_id in st.session_state['chat_threads'][::-1]:
-    if st.sidebar.button(str(thread_id)):
+for idx, thread_id in enumerate(st.session_state['chat_threads'][::-1]):
+    chat_number = len(st.session_state['chat_threads']) - idx
+    if st.sidebar.button(f'chat_{chat_number}'):
         st.session_state['thread_id'] = thread_id
         messages = load_conversation(thread_id)
 
